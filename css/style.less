@@ -16,28 +16,61 @@ h1, h2, p {
 
 .city {
 	height: 15%;
-	background-color: #86bde8;
-	text-align: center;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #86bde8;
+	font-family: helvetica, arial;
+	color: white; 
 }
 
 .picture {
 	height: 45%;
-	//background-color: #548dbc;
-	text-align: center;
+	background-image: url(../img/windy.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-.picture__logo {
-	width: 20%;
-}
-
-.today-conditions {
-	height: 15%;
+.today {
+	height: 40%;
 	background-color: #86bde8;
 	text-align: center;
 }
 
-.week-conditions {
+.today__conditions {
+	height: 50%;
+	width: 300px;
+	margin-left: auto; 
+	margin-right: auto;
+
+	.conditions {
+		margin: 0px; 
+		font-family: helvetica, arial;
+
+		.conditions__label {
+			margin: 0px;
+			color: white;
+			opacity: 0.7;
+		}
+
+		.conditions__value {
+			margin: 0px;
+			color: white;
+		}
+	}
+
+	.column {
+		float: left;
+		width: 100px;
+	}
+}
+
+
+/*
+S.week {
 	height: 25%;
 	//background-color: #548dbc;
 	text-align: center;
 }
+*/
