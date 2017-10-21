@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var eslint = require('gulp-eslint');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
 gulp.task('livereload', () => {
     browserSync.create();
@@ -10,6 +12,19 @@ gulp.task('livereload', () => {
     browserSync.init({
 		server: "./dist"
 	});
+});
+
+gulp.task('scripts', function() {
+	gulp.src('js/**/*.js')
+		.pipe(concat('all.js'))
+		.pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('scripts-dist', function() {
+	gulp.src('js/**/*.js')
+		.pipe(concat('all.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('lint', () => {
@@ -50,3 +65,4 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'livereload', 'watch']);
+gulp.task('dist', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts-dist']);
