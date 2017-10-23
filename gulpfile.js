@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 //var sass = require('gulp-sass');
 var less = require('gulp-less');
-var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var eslint = require('gulp-eslint');
